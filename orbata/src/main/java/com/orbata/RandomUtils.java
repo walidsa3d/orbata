@@ -49,14 +49,10 @@ public class RandomUtils {
 		
 	}
 	public static Date randDate(int minYear, int maxYear){
-		 GregorianCalendar gc = new GregorianCalendar();
-
+		    GregorianCalendar gc = new GregorianCalendar();
 	        int year = randInt(minYear, maxYear);
-
 	        gc.set(Calendar.YEAR, year);
-
 	        int dayOfYear = randInt(1, gc.getActualMaximum(Calendar.DAY_OF_YEAR));
-
 	        gc.set(Calendar.DAY_OF_YEAR, dayOfYear);
 	        return gc.getTime();
 

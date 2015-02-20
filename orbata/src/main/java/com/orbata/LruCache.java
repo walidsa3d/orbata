@@ -5,14 +5,14 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Cache<k,v> {
+public class LruCache<k,v> {
 		//Maximum capacity for the LRU cache.
 		private final int capacity;
 		//Queue to store the recently used keys.
 		private Queue<k> queue;
 		//Key-Value store to maintain the actual object.
 		private Map<k, v> map;
-	public Cache(final int capacity) {
+	public LruCache(final int capacity) {
 		this.capacity = capacity;
 		this.queue	= new PriorityQueue<k>();
 		this.map	= new HashMap<k, v>(capacity);

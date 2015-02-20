@@ -1,4 +1,7 @@
 package com.orbata;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -50,7 +53,16 @@ public class TextUtils {
 	}
 
 	public static final String hash(String s, String hashtype) {
-		return "";
+		StringBuffer sb = new StringBuffer();
+		try {
+			byte[] bytesOfMessage = s.getBytes("UTF-8");
+		    for (int i = 0; i < bytesOfMessage.length; ++i) {
+		          sb.append(Integer.toHexString((bytesOfMessage[i] & 0xFF) | 0x100).substring(1,3));
+		       }
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return sb.toString();
 	}
 
 	// returns true if a given string is a palindrome
